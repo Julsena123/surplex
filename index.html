@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProzessFlow24 – Strukturierte Erstaufnahme für Notariate</title>
+  <meta name="description" content="Strukturierte telefonische Erstaufnahme und Vorqualifizierung für Immobilienkaufverträge: weniger Rückfragen, vollständigere Akten und sauberere Übergaben im Notariat." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#07111f" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:title" content="ProzessFlow24 – Strukturierte Erstaufnahme für Notariate" />
+  <meta property="og:description" content="Telefonische Erstaufnahme und Vorqualifizierung von Immobilienkaufverträgen vollständiger und effizienter organisieren." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #06101d;
+      --bg-2: #0b1730;
+      --panel: rgba(16, 35, 64, 0.78);
+      --panel-2: #0e1e36;
+      --line: rgba(255, 255, 255, 0.1);
+      --line-2: rgba(110, 170, 255, 0.18);
+      --text: #edf4ff;
+      --muted: #a7b9d4;
+      --blue: #2a74e8;
+      --blue-2: #4b93ff;
+      --blue-3: #99c4ff;
+      --cyan: #7fd1ff;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+      --radius: 28px;
+      --radius-sm: 18px;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(700px 380px at 80% -5%, rgba(75, 147, 255, 0.22), transparent 60%),
+        radial-gradient(900px 440px at 15% 0%, rgba(42, 116, 232, 0.1), transparent 60%),
+        linear-gradient(180deg, #06101d 0%, #091424 22%, #09172a 100%);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .section { padding: 104px 0; }
+    .section-sm { padding: 72px 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--blue-3);
+    }
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--blue-2), transparent);
+    }
+    h1, h2, h3, p { margin: 0; }
+    h1 {
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+      font-weight: 850;
+      text-wrap: balance;
+    }
+    h2 {
+      font-size: clamp(30px, 4vw, 54px);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      font-weight: 820;
+      text-wrap: balance;
+    }
+    h3 {
+      font-size: clamp(20px, 2vw, 28px);
+      line-height: 1.14;
+      letter-spacing: -0.02em;
+      font-weight: 760;
+      text-wrap: balance;
+    }
+    .lead {
+      font-size: clamp(18px, 1.8vw, 22px);
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 780px;
+    }
+    .copy { font-size: 17px; line-height: 1.78; color: var(--muted); }
+    .small { font-size: 14px; line-height: 1.65; color: var(--muted); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 16px 26px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 760;
+      border: 1px solid transparent;
+      transition: 0.25s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(180deg, var(--blue-2), var(--blue));
+      color: #fff;
+      box-shadow: 0 18px 40px rgba(42, 116, 232, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    }
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 48px rgba(42, 116, 232, 0.33);
+      outline: none;
+    }
+    .btn-full { width: 100%; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      backdrop-filter: saturate(140%) blur(16px);
+      background: linear-gradient(180deg, rgba(6, 16, 29, 0.92), rgba(6, 16, 29, 0.72));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 820;
+      letter-spacing: -0.02em;
+    }
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, var(--blue-2), #1c457f);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 14px 26px rgba(42, 116, 232, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+    .brand-mark::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border: 2px solid #fff;
+      border-left-color: transparent;
+      border-radius: 50%;
+      transform: rotate(-35deg);
+    }
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: auto -8px -8px auto;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.25), transparent 62%);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-links a {
+      font-size: 15px;
+      color: #cad8ec;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: #fff;
+      outline: none;
+    }
+    .mobile-toggle {
+      display: none;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      min-height: 46px;
+      padding: 0 16px;
+    }
+
+    .hero {
+      position: relative;
+      padding: 60px 0 74px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -12%;
+      top: -14%;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle at center, rgba(75, 147, 255, 0.18), transparent 62%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      align-items: center;
+    }
+    .hero-copy > * + * { margin-top: 20px; }
+    .hero-action { padding-top: 8px; }
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      padding-top: 8px;
+    }
+    .proof {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      border-radius: 20px;
+      padding: 18px 16px;
+      min-height: 98px;
+    }
+    .proof strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .proof span {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .hero-frame {
+      position: relative;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 32px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+        radial-gradient(450px 220px at 100% 0%, rgba(75, 147, 255, 0.2), transparent 60%);
+      box-shadow: var(--shadow);
+    }
+    .hero-frame::after {
+      content: "";
+      position: absolute;
+      inset: auto -12% -18% auto;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(42, 116, 232, 0.24), transparent 60%);
+      pointer-events: none;
+    }
+    .dashboard {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.025));
+    }
+    .dashboard-top {
+      padding: 15px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .dashboard-dots { display: flex; gap: 8px; }
+    .dashboard-dots span {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: block;
+      background: #61779a;
+    }
+    .dashboard-dots span:nth-child(1) { background: #ec7474; }
+    .dashboard-dots span:nth-child(2) { background: #f1c15a; }
+    .dashboard-dots span:nth-child(3) { background: #66da84; }
+    .dashboard-badge {
+      font-size: 12px;
+      font-weight: 700;
+      color: #dcebff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(110, 170, 255, 0.22);
+      background: rgba(42, 116, 232, 0.14);
+    }
+    .dashboard-body {
+      padding: 22px;
+      display: grid;
+      gap: 16px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .ui-card {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      min-height: 138px;
+    }
+    .ui-card h4 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: #dfeaff;
+      font-weight: 720;
+    }
+    .tag-wrap { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 650;
+      color: #e7f1ff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(110, 170, 255, 0.2);
+      background: rgba(42, 116, 232, 0.12);
+    }
+    .tag::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--blue-2));
+    }
+    .chart {
+      position: relative;
+      height: 145px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+    .chart::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 100% 32px, 32px 100%;
+      opacity: 0.35;
+    }
+    .chart svg { position: absolute; inset: 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+    .section-head .copy { max-width: 700px; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .card {
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      padding: 24px;
+      min-height: 250px;
+      transition: 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(110, 170, 255, 0.24);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.18);
+    }
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: rgba(42, 116, 232, 0.12);
+      border: 1px solid rgba(110, 170, 255, 0.24);
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .card-icon::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--blue-2), var(--blue));
+    }
+    .card h3 { margin-bottom: 12px; }
+    .card p { font-size: 16px; line-height: 1.72; color: var(--muted); }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .compare-col {
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 26px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .compare-col.before {
+      background: linear-gradient(180deg, rgba(239, 116, 116, 0.05), rgba(255, 255, 255, 0.02));
+    }
+    .compare-col.after {
+      background: linear-gradient(180deg, rgba(42, 116, 232, 0.14), rgba(255, 255, 255, 0.025));
+    }
+    .compare-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .status {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+    }
+    .status.bad { background: #ef7474; }
+    .status.good { background: var(--blue-2); }
+    .compare ol {
+      margin: 0;
+      padding-left: 20px;
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .step {
+      position: relative;
+      padding: 24px 24px 24px 88px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .step-num {
+      position: absolute;
+      left: 24px;
+      top: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 15px;
+      font-weight: 800;
+      background: linear-gradient(180deg, var(--blue-2), var(--blue));
+      color: #fff;
+      box-shadow: 0 14px 26px rgba(42, 116, 232, 0.22);
+    }
+    .step h3 { margin-bottom: 10px; }
+    .step p { font-size: 16px; line-height: 1.72; color: var(--muted); }
+
+    .band {
+      border-radius: 30px;
+      border: 1px solid rgba(110, 170, 255, 0.18);
+      background: linear-gradient(135deg, rgba(42, 116, 232, 0.14), rgba(255, 255, 255, 0.03));
+      box-shadow: var(--shadow);
+      padding: 36px;
+    }
+    .band-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .bullets {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .bullet {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 16px;
+      line-height: 1.72;
+      color: var(--muted);
+    }
+    .bullet::before {
+      content: "";
+      flex: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 9px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue-2));
+      box-shadow: 0 0 0 5px rgba(42, 116, 232, 0.1);
+    }
+    .quote {
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 24px;
+      font-size: 20px;
+      line-height: 1.5;
+      font-weight: 680;
+      color: #e5f0ff;
+    }
+
+    .consult {
+      display: grid;
+      grid-template-columns: 1fr 0.96fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .form-card {
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+    .form { display: grid; gap: 14px; margin-top: 18px; }
+    .label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #d8e5f6;
+    }
+    .input, .textarea {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      padding: 16px;
+      outline: none;
+      transition: 0.2s ease;
+    }
+    .input::placeholder, .textarea::placeholder { color: #86a2c4; }
+    .input:focus, .textarea:focus {
+      border-color: rgba(110, 170, 255, 0.45);
+      box-shadow: 0 0 0 4px rgba(42, 116, 232, 0.1);
+    }
+    .textarea {
+      min-height: 124px;
+      resize: vertical;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .form-note {
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .faq { display: grid; gap: 14px; }
+    .faq-item {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: 0;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 760;
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.28s ease, padding 0.28s ease;
+      color: var(--muted);
+      line-height: 1.72;
+      padding: 0 24px;
+    }
+    .faq-item.active .faq-a {
+      max-height: 220px;
+      padding: 0 24px 22px;
+    }
+    .faq-icon { transition: transform 0.25s ease; }
+    .faq-item.active .faq-icon { transform: rotate(45deg); }
+
+    .final { text-align: center; }
+    .final h2 { max-width: 980px; margin: 0 auto 16px; }
+    .final p { max-width: 760px; margin: 0 auto 24px; }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 28px 0 52px;
+      color: #9ab0cc;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 1120px) {
+      .hero-grid, .consult, .band-grid { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .hero-proof { grid-template-columns: repeat(3, 1fr); }
+      .section-head { align-items: start; flex-direction: column; }
+    }
+
+    @media (max-width: 780px) {
+      .container { width: min(var(--max), calc(100% - 24px)); }
+      .nav { align-items: flex-start; }
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding-top: 8px;
+      }
+      .nav-links.open { display: flex; }
+      .mobile-toggle { display: inline-flex; }
+      .section { padding: 78px 0; }
+      .section-sm { padding: 56px 0; }
+      .hero { padding: 34px 0 52px; }
+      .hero-proof, .cards, .compare, .steps, .form-grid { grid-template-columns: 1fr; }
+      .proof, .card, .step, .compare-col, .form-card, .band { border-radius: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="ProzessFlow24 Startseite">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>ProzessFlow24</span>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
+        <a href="#problem">Problem</a>
+        <a href="#vorteile">Vorteile</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#analyse">Analyse</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <button class="mobile-toggle" type="button" id="mobile-toggle" aria-expanded="false" aria-controls="nav-links">Menü</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Für Notariate & strukturierte Kanzleiprozesse</span>
+          <h1>Der Flaschenhals im Immobilienkaufvertrag liegt oft nicht im Vertrag. Sondern in der Erstaufnahme.</h1>
+          <p class="lead">Fehlende Angaben, Rückfragen und manuelle Übertragung kosten viele Notariate schon vor dem Entwurf unnötig Zeit. ProzessFlow24 hilft dabei, die telefonische Erstaufnahme und Vorqualifizierung von Immobilienkaufverträgen von Anfang an strukturierter, vollständiger und effizienter zu machen.</p>
+          <p class="copy">Weniger Rückfragen. Vollständigere Akten. Weniger Unterbrechungen im Sekretariat.</p>
+          <div class="hero-action">
+            <a class="btn btn-primary" href="#analyse">Zur kostenfreien Prozessanalyse</a>
+          </div>
+          <p class="small">In 15 Minuten identifizieren wir typische Engpässe in Ihrer Erstaufnahme und besprechen erste konkrete Lösungsansätze.</p>
+
+          <div class="hero-proof" id="vorteile">
+            <div class="proof">
+              <strong>Vorqualifizierung</strong>
+              <span>klare Einordnung noch im Erstkontakt</span>
+            </div>
+            <div class="proof">
+              <strong>Vollständigkeitsprüfung</strong>
+              <span>weniger Rückfragen vor der Weitergabe</span>
+            </div>
+            <div class="proof">
+              <strong>Saubere Aktenanlage</strong>
+              <span>weniger Medienbrüche und Doppelarbeit</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-frame reveal" aria-hidden="true">
+          <div class="dashboard">
+            <div class="dashboard-top">
+              <div class="dashboard-dots"><span></span><span></span><span></span></div>
+              <span class="dashboard-badge">Kostenfreie Prozessanalyse</span>
+            </div>
+            <div class="dashboard-body">
+              <div class="grid-2">
+                <div class="ui-card">
+                  <h4>Telefonische Erstaufnahme</h4>
+                  <div class="tag-wrap">
+                    <span class="tag">Beteiligte vollständig?</span>
+                    <span class="tag">Finanzierung geklärt?</span>
+                    <span class="tag">Unterlagen vorhanden?</span>
+                  </div>
+                </div>
+                <div class="ui-card">
+                  <h4>Typische Engpässe</h4>
+                  <p class="small">Fehlende Steuer-ID, unvollständige Grundbuchdaten, Rückfragen zu Finanzierung und manuelle Übertragung ins Notarsystem.</p>
+                </div>
+              </div>
+              <div class="ui-card chart">
+                <svg viewBox="0 0 800 200" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="flow-gradient" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#7fd1ff"></stop>
+                      <stop offset="100%" stop-color="#2a74e8"></stop>
+                    </linearGradient>
+                  </defs>
+                  <path d="M40,150 C110,140 130,95 200,90 C280,85 290,135 360,126 C430,117 450,60 520,58 C600,56 620,115 700,98 L760,86" fill="none" stroke="url(#flow-gradient)" stroke-width="7" stroke-linecap="round"></path>
+                  <circle cx="760" cy="86" r="7" fill="#7fd1ff"></circle>
+                </svg>
+              </div>
+              <div class="ui-card">
+                <h4>Sauber strukturierter Ablauf</h4>
+                <p class="small">Geführte Vorqualifizierung → Vollständigkeitsprüfung → strukturierte Nachforderung → geordnete Aktenanlage.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Der eigentliche Engpass</span>
+            <h2>Heute oft der Reibungsverlust vor dem eigentlichen Entwurf.</h2>
+          </div>
+          <p class="copy">Nicht große Sonderfälle bremsen den Alltag. Sondern viele kleine manuelle Schritte ganz am Anfang: fehlende Angaben, Rückfragen, Doppelarbeit und ein Prozess, der zu stark vom Erfahrungswissen Einzelner abhängt.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true"></div>
+            <h3>Unvollständige Erstaufnahme</h3>
+            <p>Wichtige Angaben fehlen und fallen oft erst später auf. Dann beginnen Rückfragen, Schleifen und unnötige Nacharbeit.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true"></div>
+            <h3>Standarderfassung bindet qualifizierte Zeit</h3>
+            <p>Immer dieselben Angaben, dieselben Rückfragen, dieselben Abstimmungen – und genau das landet auf Tischen, die eigentlich für fachliche Arbeit gebraucht werden.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true"></div>
+            <h3>Medienbrüche machen den Ablauf fehleranfällig</h3>
+            <p>Telefonnotizen, E-Mails und spätere manuelle Übertragung erhöhen das Risiko von Lücken, Doppelarbeit und Übertragungsfehlern.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true"></div>
+            <h3>Vollständigkeit hängt an Einzelnen</h3>
+            <p>Wenn die Qualität der Aufnahme davon abhängt, wer gerade telefoniert oder die Mail bearbeitet, wird der Prozess in Stoßzeiten schnell unruhig und uneinheitlich.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ablauf" class="section-sm">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Vorher / Nachher</span>
+            <h2>Wie der Ablauf heute oft aussieht – und wie er aussehen sollte.</h2>
+          </div>
+        </div>
+
+        <div class="compare">
+          <div class="compare-col before reveal">
+            <div class="compare-title">
+              <span class="status bad"></span>
+              <h3>Heute oft so</h3>
+            </div>
+            <ol>
+              <li>Anruf kommt rein.</li>
+              <li>Angaben werden frei aufgenommen.</li>
+              <li>Wichtige Informationen fehlen.</li>
+              <li>Rückfragen per Telefon oder E-Mail.</li>
+              <li>Daten werden erneut übertragen.</li>
+              <li>Der Entwurf startet mit Lücken.</li>
+            </ol>
+          </div>
+
+          <div class="compare-col after reveal">
+            <div class="compare-title">
+              <span class="status good"></span>
+              <h3>Sauber strukturierter Ablauf</h3>
+            </div>
+            <ol>
+              <li>Geführte Vorqualifizierung.</li>
+              <li>Vollständigkeitsprüfung vor interner Weitergabe.</li>
+              <li>Strukturierte Nachforderung fehlender Angaben.</li>
+              <li>Geordnete Aktenanlage.</li>
+              <li>Belastbare Übergabe an Sekretariat und Sachbearbeitung.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="loesung" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Die Lösung</span>
+            <h2>Die Erstaufnahme führt durch den Prozess. Nicht Ihr Team jedes Mal neu durch den Fragekatalog.</h2>
+          </div>
+          <p class="copy">Der Aufnahmeprozess wird vorab sauber strukturiert. So wird systematisch gefragt, Vollständigkeit geprüft und nur das intern weitergegeben, was wirklich bearbeitbar ist.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal">
+            <div class="step-num">01</div>
+            <h3>Vorqualifizierung</h3>
+            <p>Der Vorgang wird früh eingeordnet, damit Standardfälle nicht denselben Aufwand erzeugen wie Sonderkonstellationen.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num">02</div>
+            <h3>Vollständigkeitsprüfung</h3>
+            <p>Pflichtangaben und fehlende Informationen werden erkannt, bevor der Fall intern weitergeht.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num">03</div>
+            <h3>Aktenanlage</h3>
+            <p>Die relevanten Angaben liegen geordnet vor und schaffen die Grundlage für eine saubere Aktenanlage.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num">04</div>
+            <h3>Nachforderung fehlender Angaben</h3>
+            <p>Was noch fehlt, wird strukturiert nachgefordert, statt später erneut manuell eingesammelt zu werden.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <div class="band">
+          <div class="band-grid">
+            <div>
+              <span class="eyebrow">Warum gerade jetzt?</span>
+              <h2>Der richtige Aufnahmeprozess entscheidet, ob ein Notariat nur mithält – oder voraus ist.</h2>
+              <div class="bullets">
+                <div class="bullet">Notariatsprozesse werden digitaler und medienbruchärmer.</div>
+                <div class="bullet">Wer die spätere Bearbeitung modernisiert, die Erstaufnahme aber unstrukturiert lässt, verschiebt den Engpass nur nach vorn.</div>
+                <div class="bullet">Mit elektronischer Präsenzbeurkundung und eNoVA zahlt sich ein sauberer Aufnahmeprozess operativ besonders schnell aus.</div>
+              </div>
+            </div>
+            <div class="quote">„Nicht mehr Hektik. Sondern mehr Struktur am Anfang.“</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm">
+      <div class="container reveal">
+        <div class="band">
+          <div class="band-grid">
+            <div>
+              <span class="eyebrow">Outcome</span>
+              <h2>Weniger Rückfragen, vollständigere Aufnahme, sauberere Übergabe.</h2>
+              <p class="copy" style="margin-top:14px">Wir verkaufen nicht einfach „KI für Notariate“. Wir beginnen mit einem standardisierten Aufnahmeprozess, der im Alltag wirklich verlässlich funktioniert.</p>
+            </div>
+            <div class="bullets">
+              <div class="bullet">Weniger Rückfragen im Sekretariat und in der Sachbearbeitung.</div>
+              <div class="bullet">Vollständigere Fallaufnahme vor der internen Weitergabe.</div>
+              <div class="bullet">Sauberere Aktenanlage auf Basis geordneter Angaben.</div>
+              <div class="bullet">Mehr Entlastung bei wiederkehrenden Standardfällen.</div>
+              <div class="bullet">Weniger Unterbrechungen schon vor dem Entwurf.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="analyse" class="section">
+      <div class="container consult">
+        <div class="reveal">
+          <span class="eyebrow">Kostenfreie Prozessanalyse</span>
+          <h2>Was Sie in der kostenfreien Prozessanalyse konkret erhalten.</h2>
+          <div class="bullets" style="margin-top:22px">
+            <div class="bullet">Einen klaren Blick auf typische Datenlücken in Ihrer Erstaufnahme.</div>
+            <div class="bullet">Eine Einschätzung, wo Rückfragen und Schleifen heute Zeit kosten.</div>
+            <div class="bullet">Erste Lösungsansätze für strukturierte Aufnahme, Vollständigkeitsprüfung und Aktenanlage.</div>
+            <div class="bullet">Eine realistische Einschätzung, welche Schritte sich sinnvoll digitalisieren lassen.</div>
+          </div>
+          <p class="small" style="margin-top:16px">Unverbindlich. Praxisnah. Direkt auf Ihren Notariatsalltag bezogen.</p>
+        </div>
+
+        <div class="form-card reveal">
+          <h3>Jetzt Prozessanalyse anfragen</h3>
+          <p class="small" style="margin-top:8px">Kurz und unkompliziert. Wir melden uns mit einem passenden Vorschlag.</p>
+          <form class="form" id="analysis-form">
+            <div class="form-grid">
+              <div>
+                <label class="label" for="name">Name</label>
+                <input class="input" id="name" name="name" type="text" placeholder="Ihr Name" autocomplete="name" required />
+              </div>
+              <div>
+                <label class="label" for="company">Notariat / Kanzlei</label>
+                <input class="input" id="company" name="company" type="text" placeholder="Name des Notariats" autocomplete="organization" required />
+              </div>
+            </div>
+            <div class="form-grid">
+              <div>
+                <label class="label" for="mail">E-Mail</label>
+                <input class="input" id="mail" name="email" type="email" placeholder="name@notariat.de" autocomplete="email" required />
+              </div>
+              <div>
+                <label class="label" for="phone">Telefon</label>
+                <input class="input" id="phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel" required />
+              </div>
+            </div>
+            <div>
+              <label class="label" for="msg">Wo entstehen heute die meisten Rückfragen?</label>
+              <textarea class="textarea" id="msg" name="message" placeholder="Kurze Beschreibung"></textarea>
+            </div>
+            <div class="form-note small">Die Telefonnummer wird mit einer <strong>+7</strong>-Maske geführt, damit Kontakte standardisiert erfasst werden.</div>
+            <button class="btn btn-primary btn-full" type="submit">Zur kostenfreien Prozessanalyse</button>
+            <p class="small" id="form-feedback" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section-sm">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">FAQ</span>
+            <h2>Häufige Fragen</h2>
+          </div>
+        </div>
+
+        <div class="faq">
+          <div class="faq-item reveal active">
+            <button class="faq-q" type="button">Ist das nur für große Notariate relevant? <span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Nein. Gerade kleinere Teams spüren Unterbrechungen und Nacharbeit besonders stark, wenn die Erstaufnahme nicht sauber strukturiert ist.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button">Geht es dabei nur um Telefonie? <span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Nein. Der telefonische Erstkontakt ist oft der Einstieg. Entscheidend ist der gesamte Aufnahmeprozess bis zur vollständigen, bearbeitbaren Akte.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button">Ersetzt das mein Team? <span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Nein. Es entlastet dort, wo Standardfragen, fehlende Angaben und manuelle Übertragung heute unnötig Zeit binden.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button">Müssen bestehende Systeme ersetzt werden? <span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Nein. Bestehende Systeme und Abläufe bleiben der Ausgangspunkt. Wir strukturieren zuerst den Prozess davor.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final">
+      <div class="container reveal">
+        <span class="eyebrow">Nächster Schritt</span>
+        <h2>Wenn Ihr Team bei Immobilienkaufverträgen zu viel Zeit in Rückfragen, Nachfassen und manuelle Übertragung verliert, liegt der Hebel oft direkt am Anfang.</h2>
+        <p class="copy">In der kostenfreien Prozessanalyse schauen wir gemeinsam darauf, wo heute Datenlücken entstehen, welche Rückfragen immer wieder Zeit kosten und wie eine strukturierte Erstaufnahme konkret aussehen kann.</p>
+        <a class="btn btn-primary" href="#analyse">Analyse anfragen</a>
+        <p class="small" style="margin-top:18px">Vertraulich. Ohne Technik-Show. Mit Fokus auf einen belastbaren Ablauf.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <div>© ProzessFlow24</div>
+      <div>Landingpage · Corporate Blue · Responsive · FAQ · Formular mit +7-Maske</div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    mobileToggle?.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', String(open));
+    });
+
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle?.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.querySelectorAll('.faq-q').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const phoneInput = document.getElementById('phone');
+    const analysisForm = document.getElementById('analysis-form');
+    const feedback = document.getElementById('form-feedback');
+
+    function formatPhone(value) {
+      const digits = value.replace(/\D/g, '');
+      let core = digits.startsWith('7') ? digits.slice(1, 11) : digits.slice(0, 10);
+      let output = '+7';
+
+      if (core.length > 0) {
+        output += ' (' + core.slice(0, 3);
+      }
+      if (core.length >= 4) {
+        output += ') ' + core.slice(3, 6);
+      }
+      if (core.length >= 7) {
+        output += '-' + core.slice(6, 8);
+      }
+      if (core.length >= 9) {
+        output += '-' + core.slice(8, 10);
+      }
+      return output;
+    }
+
+    phoneInput?.addEventListener('focus', () => {
+      if (!phoneInput.value) {
+        phoneInput.value = '+7';
+      }
+    });
+
+    phoneInput?.addEventListener('input', (event) => {
+      const input = event.target;
+      input.value = formatPhone(input.value);
+    });
+
+    phoneInput?.addEventListener('blur', () => {
+      if (phoneInput.value === '+7') {
+        phoneInput.value = '';
+      }
+    });
+
+    analysisForm?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const digits = phoneInput.value.replace(/\D/g, '');
+      const validPhone = digits.length === 11 && digits.startsWith('7');
+
+      if (!validPhone) {
+        feedback.textContent = 'Bitte geben Sie eine vollständige Telefonnummer im Format +7 (___) ___-__-__ ein.';
+        feedback.style.color = '#ffb4b4';
+        phoneInput.focus();
+        return;
+      }
+
+      feedback.textContent = 'Danke. Dies ist eine Demo der Landingpage – hier kann im nächsten Schritt die CRM- oder Calendly-Logik angebunden werden.';
+      feedback.style.color = '#99c4ff';
+      analysisForm.reset();
+    });
+  </script>
+</body>
+</html>
