@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lead Magnet – Effizienter Intake-Prozess</title>
+  <style>
+    :root {
+      --bg: #f3f6fb;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --brand: #1d4ed8;
+      --accent: #0ea5e9;
+      --ok: #166534;
+      --warn: #b45309;
+      --danger: #b91c1c;
+      --line: #dbe4f3;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #eff4ff 0%, #f8fbff 100%);
+      line-height: 1.45;
+    }
+
+    .page {
+      width: min(980px, 92vw);
+      margin: 28px auto;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 40px 44px;
+      background: radial-gradient(120% 140% at 0% 0%, #1d4ed8 0%, #0b3ab8 45%, #0a2c89 100%);
+      color: #fff;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 34px;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #e5edff;
+      font-size: 18px;
+      max-width: 760px;
+    }
+
+    .content { padding: 28px 32px 36px; }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 14px 0 24px;
+    }
+
+    .score {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      background: #fbfdff;
+    }
+
+    .score strong { display: block; margin-bottom: 6px; }
+
+    .q {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 14px 0;
+      background: #fff;
+    }
+
+    .q h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #0b2a77;
+    }
+
+    .label {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .q p { margin: 7px 0; color: var(--muted); }
+    .q ol { margin: 8px 0 0 18px; color: var(--muted); }
+    .q li { margin: 4px 0; }
+
+    .kpi, .cta {
+      margin-top: 22px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      background: linear-gradient(180deg, #f8fbff, #ffffff);
+    }
+
+    .kpi ul { margin: 8px 0 0 18px; }
+
+    .cta {
+      border-color: #c7d7ff;
+      background: linear-gradient(180deg, #eaf1ff, #f8fbff);
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      color: white;
+      background: var(--brand);
+      padding: 10px 16px;
+      border-radius: 10px;
+    }
+
+    .muted { color: var(--muted); }
+
+    @media print {
+      body { background: #fff; }
+      .page {
+        width: 100%;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .q { page-break-inside: avoid; }
+      .cta a {
+        color: #0f172a;
+        background: transparent;
+        border: 1px solid #0f172a;
+      }
+    }
+
+    @media (max-width: 760px) {
+      h1 { font-size: 28px; }
+      .hero p { font-size: 16px; }
+      .score-grid { grid-template-columns: 1fr; }
+      .hero, .content { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="badge">Lead Magnet Vorlage</div>
+      <h1>Effizienter Intake-Prozess für Kanzleien</h1>
+      <p>Vom Chaos-Telefonat zur strukturierten Mandatsaufnahme: 10 Fragen, die Schwachstellen sichtbar machen – plus direkte Lösung und Umsetzungsplan.</p>
+    </section>
+
+    <section class="content">
+      <h2>So nutzen Sie diesen Leitfaden</h2>
+      <p class="muted">Bewerten Sie jede Frage mit <strong>Ja</strong>, <strong>Teilweise</strong> oder <strong>Nein</strong>. Jede Antwort „Teilweise/Nein“ zählt als 1 Risiko-Punkt.</p>
+
+      <div class="score-grid">
+        <div class="score">
+          <strong>0–2 Punkte</strong>
+          Gute Basis. Gezielte Optimierung reicht aus.
+        </div>
+        <div class="score">
+          <strong>3–5 Punkte</strong>
+          Spürbarer Reibungsverlust im Intake.
+        </div>
+        <div class="score">
+          <strong>6+ Punkte</strong>
+          Kritischer Engpass mit Umsatz- und Qualitätsrisiko.
+        </div>
+      </div>
+
+      <h2>10 Fragen + direkte Umsetzung</h2>
+
+      <article class="q"><h3>1) Gibt es Pflichtfelder für jeden Erstkontakt?</h3><p><span class="label">Problem:</span> Fehlende Basisdaten erzeugen Rückfragen und verzögern den Fallstart.</p><p><span class="label">Lösung:</span> Pro Falltyp 8–12 Pflichtangaben definieren.</p><p><span class="label">Umsetzung:</span></p><ol><li>Top-3 Falltypen auswählen.</li><li>Pflichtfelder je Falltyp festlegen.</li><li>In der Intake-Maske als Pflichtlogik hinterlegen.</li></ol></article>
+      <article class="q"><h3>2) Wird nach Dringlichkeit priorisiert?</h3><p><span class="label">Problem:</span> Akute Fälle gehen in der Masse unter.</p><p><span class="label">Lösung:</span> 3-Stufen-Triage einführen: kritisch / zeitnah / standard.</p><p><span class="label">Umsetzung:</span></p><ol><li>Kriterien pro Stufe definieren.</li><li>Fristfrage verpflichtend im Erstgespräch verankern.</li><li>Eskalationswege pro Stufe dokumentieren.</li></ol></article>
+      <article class="q"><h3>3) Ist klar definiert, wann ein Intake vollständig ist?</h3><p><span class="label">Problem:</span> Unfertige Vorgänge werden zu früh weitergegeben.</p><p><span class="label">Lösung:</span> Definition of Done je Falltyp einführen.</p><p><span class="label">Umsetzung:</span></p><ol><li>Checkliste je Anliegen erstellen.</li><li>Übergabe nur bei 100%-Erfüllung.</li><li>Rückläuferquote wöchentlich messen.</li></ol></article>
+      <article class="q"><h3>4) Gibt es einen standardisierten Gesprächsleitfaden?</h3><p><span class="label">Problem:</span> Ergebnisqualität hängt von einzelnen Personen ab.</p><p><span class="label">Lösung:</span> Verbindliches Gesprächsskript mit Entscheidungswegen.</p><p><span class="label">Umsetzung:</span></p><ol><li>In 5 Blöcke gliedern: Anlass, Frist, Fakten, Unterlagen, Next Step.</li><li>Einheitliche Formulierungen festlegen.</li><li>Team im Kurztraining schulen.</li></ol></article>
+      <article class="q"><h3>5) Werden wiederkehrende Anliegen einheitlich erfasst?</h3><p><span class="label">Problem:</span> Identische Fälle landen in unterschiedlichen Strukturen.</p><p><span class="label">Lösung:</span> Standard-Templates für häufige Anliegen erstellen.</p><p><span class="label">Umsetzung:</span></p><ol><li>80/20-Falltypen identifizieren.</li><li>Template pro Falltyp erstellen.</li><li>Freitext auf das Wesentliche begrenzen.</li></ol></article>
+      <article class="q"><h3>6) Arbeiten alle mit derselben Datenerfassungslogik?</h3><p><span class="label">Problem:</span> Unterschiedliche Vorgehensweisen erzeugen inkonsistente Daten.</p><p><span class="label">Lösung:</span> Eine Erfassungslogik, ein Workflow, eine Datenquelle.</p><p><span class="label">Umsetzung:</span></p><ol><li>Parallelprozesse dokumentieren.</li><li>Hauptprozess festlegen.</li><li>Nebenwege abschalten.</li></ol></article>
+      <article class="q"><h3>7) Werden unvollständige Anfragen automatisch markiert?</h3><p><span class="label">Problem:</span> Unvollständige Vorgänge blockieren die Pipeline.</p><p><span class="label">Lösung:</span> Statuslogik mit klaren Zuständen einführen.</p><p><span class="label">Umsetzung:</span></p><ol><li>Status: offen / unvollständig / vollständig / übergeben.</li><li>Warnlogik bei fehlenden Pflichtfeldern aktivieren.</li><li>Tägliche Nachfass-Liste etablieren.</li></ol></article>
+      <article class="q"><h3>8) Gibt es klare Übergabekriterien an Sachbearbeitung/Notar?</h3><p><span class="label">Problem:</span> Übergaben erfolgen nach Gefühl statt nach Standard.</p><p><span class="label">Lösung:</span> Verbindliche Gate-Kriterien und SLA definieren.</p><p><span class="label">Umsetzung:</span></p><ol><li>Muss-/Kann-Kriterien pro Übergabe festlegen.</li><li>SLA je Priorität hinterlegen.</li><li>Gate-Verstöße im Weekly prüfen.</li></ol></article>
+      <article class="q"><h3>9) Wird die Qualität der Erstaufnahme regelmäßig gemessen?</h3><p><span class="label">Problem:</span> Ohne Kennzahlen bleibt Verbesserung zufällig.</p><p><span class="label">Lösung:</span> Vier Kern-KPIs als Standard einführen.</p><p><span class="label">Umsetzung:</span></p><ol><li>KPIs definieren.</li><li>Wöchentliches 20-Minuten-Review.</li><li>Monatlich einen Engpass beheben.</li></ol></article>
+      <article class="q"><h3>10) Können Anfragen auch außerhalb der Bürozeiten aufgenommen werden?</h3><p><span class="label">Problem:</span> Potenzielle Mandate gehen außerhalb der Zeiten verloren.</p><p><span class="label">Lösung:</span> Asynchronen Intake ergänzen (Formular + Rückruflogik).</p><p><span class="label">Umsetzung:</span></p><ol><li>Kurzformular mit Pflichtfeldern bereitstellen.</li><li>Automatische Eingangsbestätigung versenden.</li><li>Morgen-Queue mit Priorisierung starten.</li></ol></article>
+
+      <section class="kpi">
+        <h2>14-Tage-Implementierungsplan</h2>
+        <p><strong>Woche 1:</strong> Diagnose &amp; Design (Ist-Prozess, Pflichtfelder, Triage, DoD, Templates).</p>
+        <p><strong>Woche 2:</strong> Setup &amp; Rollout (Technik, Training, Testbetrieb, Live-Gang).</p>
+      </section>
+
+      <section class="kpi">
+        <h2>KPI-Zielwerte ab Monat 1</h2>
+        <ul>
+          <li>Vollständigkeit beim Erstkontakt: <strong>&gt;90%</strong></li>
+          <li>Rückläuferquote: <strong>&lt;15%</strong></li>
+          <li>Time-to-Intake: <strong>-30%</strong></li>
+          <li>Bearbeitungsstart ohne Rückfrage: <strong>+40%</strong></li>
+        </ul>
+      </section>
+
+      <section class="cta">
+        <h2>Bereit für einen Intake, der Wachstum ermöglicht?</h2>
+        <p>Lassen Sie uns prüfen, wie dieser Prozess in Ihrer Kanzlei konkret umgesetzt werden kann.</p>
+        <a href="#">Jetzt Termin vereinbaren</a>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
